@@ -1,20 +1,30 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
+    <ion-title text-align="center">
+      Weather
     </ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar (ionChange)="searchCity($event)"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<ion-content>
+  <div class="main">
+    <span class="city">{{city}}</span>
+    <span class="date">{{date | dateFormatting}}</span> 
+    <span class="temperature">{{temperature}}°</span>
+    <span class="description">{{description}}</span>
   </div>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="max-temp">H:{{max}}°</ion-col>
+        <ion-col class="min-temp">L:{{min}}°</ion-col>
+      </ion-row>
+      <div id="weather">
+        <ion-row>
+          <span class="icon"><img src="https://openweathermap.org/img/wn/{{iconCode}}@2x.png"></span>
+        </ion-row>
+      </div>
+    </ion-grid>
 </ion-content>
