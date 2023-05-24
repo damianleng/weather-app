@@ -12,7 +12,7 @@ export class WeatherService {
   ) { }
 
   getWeatherData(city: string): Observable<any> {
-    let apiId = '298a75146925a48cc50bf4837105a883';
+    let apiId = ''; // your api id
     let queryString = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&exclude=minutely,hourly,alerts&appid=${apiId}`;
     return this.http.get(queryString);
   }
